@@ -1,0 +1,27 @@
+.container{
+    display:flex;
+    justify-content: center;
+    align-self: center;
+    flex-direction: column;
+}
+.create-document-btn{
+    border:none;
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 0.1em;
+    cursor: pointer;
+    background-color: rgb(156, 37, 37);
+    color:white;
+    transition: 0.2s;
+    margin-top: 20px;
+}
+.create-document-btn:hover{
+    background-color: rgb(107, 21, 21);
+}
+.all-themes{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
