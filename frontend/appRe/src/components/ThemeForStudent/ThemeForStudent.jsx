@@ -25,19 +25,11 @@ export default function ThemeForStudent(){
                     <h3>Text</h3>
                 </div>
                 <div className="rows">
-                    <h4>Ústav:</h4>
-                    <h3>Text</h3>
-                </div>
-                <div className="rows">
                     <h4>Vedoucí práce:</h4>
                     <h3>Text</h3>
                 </div>
                 <div className="rows">
                     <h4>Doporučené obory:</h4>
-                    <h3>Text</h3>
-                </div>
-                <div className="rows">
-                    <h4>Možné typy prací:</h4>
                     <h3>Text</h3>
                 </div>
                 <div className="rows">

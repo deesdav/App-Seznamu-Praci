@@ -15,15 +15,7 @@ export default function CreateDocument(){
                     <input type="text" className="input-text" />
                 </div>
                 <div className="input-boxes">
-                    <h4>Ústav</h4>
-                    <input type="text" className="input-text" />
-                </div>
-                <div className="input-boxes">
                     <h4>Doporučené obory</h4>
-                    <input type="text" className="input-text" />
-                </div>
-                <div className="input-boxes">
-                    <h4>Možné typy prací</h4>
                     <input type="text" className="input-text" />
                 </div>
                 <div className="input-box-abstract">

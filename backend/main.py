@@ -8,6 +8,14 @@ import mimetypes
 mimetypes.add_type('application/javascript', '.js')
 mimetypes.add_type('text/css', '.css')
 
+# Importing the 'Student' class from the 'Student' module
+from Student import Student
+# Importing the 'DatabaseManager' class from the 'DatabaseManager' module
+from DatabaseManager import DatabaseManager
+
+# Creating an instance of the DatabaseManager class
+database = DatabaseManager()
+
 # Replace the client ID and client secret below with your own
 CLIENT_ID = '11104447959-9nh0krolgfpig1dp007hudmns60pnv6g.apps.googleusercontent.com'
 CLIENT_SECRET = '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'
@@ -89,4 +97,8 @@ if __name__ == '__main__':
     os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
     app.secret_key = 'super secret key'
     app.config['SESSION_TYPE'] = 'filesystem'
+    
+    student = Student.from_user_input() 
+# Inserting the student into the database
+    database.insert(student)
     app.run()
