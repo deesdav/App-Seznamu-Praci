@@ -9,7 +9,8 @@ mimetypes.add_type('application/javascript', '.js')
 mimetypes.add_type('text/css', '.css')
 
 # Importing the 'Student' class from the 'Student' module
-from Student import Student
+#from model.Student import Student
+from model.Works import Work
 # Importing the 'DatabaseManager' class from the 'DatabaseManager' module
 from DatabaseManager import DatabaseManager
 
@@ -28,6 +29,7 @@ app = Flask(__name__,
             template_folder='C:\\Users\\david.svancar\\Desktop\\App-Seznamu-Praci\\backend\\www',
             static_folder='C:\\Users\\david.svancar\\Desktop\\App-Seznamu-Praci\\backend\\www\\assets',
             static_url_path='/assets')
+
 
 @app.route('/')
 def index():
@@ -93,12 +95,15 @@ def logout():
     session.clear()
     return redirect(url_for('index'))
 
+@app.route('/api/v1/works', methods=['GET'])
+def show():
+    students = []
+    for i in database.fetch_all():
+        students.append(i)
+    return students
+
 if __name__ == '__main__': 
     os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
     app.secret_key = 'super secret key'
     app.config['SESSION_TYPE'] = 'filesystem'
-    
-    student = Student.from_user_input() 
-# Inserting the student into the database
-    database.insert(student)
-    app.run()
+    app.run(debug=True)

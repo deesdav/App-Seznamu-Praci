@@ -4,6 +4,9 @@
 # mongodb+srv://martinhorakfkmb:db@cluster0.y0bhoyp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 # mongodb+srv://martinhorakfkmb:<password>@cluster0.y0bhoyp.mongodb.net/
 
+# nový email - feloxe6144@rencr.com
+# heslo - kubelkova130kg
+
 # Importing the 'pymongo' module for MongoDB interaction
 
 import pymongo
@@ -16,9 +19,9 @@ class DatabaseManager:
         client = None
         try:
             # Creating a MongoClient to connect to the local MongoDB server
-            client = pymongo.MongoClient('mongodb+srv://martinhorakfkmb:db@cluster0.y0bhoyp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+            client = pymongo.MongoClient('mongodb+srv://boure:kubelkova@boure.k8cibgk.mongodb.net/?retryWrites=true&w=majority&appName=boure')
             # Getting the 'mongodb' database from the MongoDB server
-            self.db = client['martinhorakfkmb']
+            self.db = client['boure']
             # Getting the 'students' collection from the 'mongodb' database
             self.collection = self.db['students']
         except Exception as e:
@@ -31,10 +34,7 @@ class DatabaseManager:
             # Creating a dictionary with student details
             data = {
                 '_id': student.sid,
-                'username': student.username,
                 'email': student.email,
-                'year': student.year,
-                'department': student.department
             }
             # Inserting the student data into the 'students' collection and obtaining the inserted ID
             sid = self.collection.insert_one(data).inserted_id
@@ -61,9 +61,7 @@ class DatabaseManager:
         # Creating a dictionary with updated student details
         data = {
             'username': student.username,
-            'email': student.email,
-            'year': student.year,
-            'department': student.department
+            'email': student.email
         }
         # Updating the student data in the 'students' collection
         self.collection.update_one({'_id': sid}, {"$set": data})
