@@ -5,7 +5,7 @@
 # mongodb+srv://martinhorakfkmb:<password>@cluster0.y0bhoyp.mongodb.net/
 
 # nový email - feloxe6144@rencr.com
-# heslo - kubelkova130kg
+# heslo - kubelkova130kg HAHA
 
 # Importing the 'pymongo' module for MongoDB interaction
 

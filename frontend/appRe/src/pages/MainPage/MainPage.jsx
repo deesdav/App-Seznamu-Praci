@@ -1,20 +1,18 @@
-import { useState } from 'react'
+import "./MainPage.css";
 import { Link } from "react-router-dom";
-import "./MainPage.css"
-import Head from '../../components/Head/Head';
-import ThemeForStudent from '../../components/ThemeForStudent/ThemeForStudent';
 
-export default function MainPage(){
-  return(
-    <div className='container'>
-      <Head/>
-      <Link to={"/createdocument"}>
-        <button className='create-document-btn'>Create Document</button>
+export default function MainPage() {
+  return (
+    <>
+      <Link to={"/createstudent"}>
+        <p>Student create form</p>
       </Link>
-      <div className='all-themes'>
-        <ThemeForStudent></ThemeForStudent>
-      </div>
-    </div>
-    
-  )
+      <Link to={"/updatestudent/df46g65df4g6df"}>
+        <p>Student update form</p>
+      </Link>
+      <Link to={"/students"}>
+        <p>Student list</p>
+      </Link>
+    </>
+  );
 }

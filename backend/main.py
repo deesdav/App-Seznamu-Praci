@@ -1,10 +1,13 @@
 from flask import Flask, redirect, url_for, session, request, render_template, send_from_directory
 import os
+from flask_cors import CORS, cross_origin
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import Flow
 from google_auth_oauthlib.flow import InstalledAppFlow
 import json
 import mimetypes
+import Student
+
 mimetypes.add_type('application/javascript', '.js')
 mimetypes.add_type('text/css', '.css')
 
@@ -30,6 +33,7 @@ app = Flask(__name__,
             static_folder='C:\\Users\\david.svancar\\Desktop\\App-Seznamu-Praci\\backend\\www\\assets',
             static_url_path='/assets')
 
+CORS(app, resources={r"/*": {"origins": "http://127.0.0.1:5173"}}, supports_credentials=True)
 
 @app.route('/')
 def index():
@@ -68,6 +72,17 @@ def to_dict(credentials):
     dictRepr = json.loads(jsonRepr)
 
     return dictRepr
+
+@app.route('/students', methods = ['POST'])
+def create_student():
+    data = json.loads(request.data)
+    print(data["name"])
+
+    student = Student(name=data["name"])
+    database.session.add(student)
+    database.session.commit()
+
+    return jsonify({'message': 'Student created successfully'})
 
 @app.route('/callback')
 def callback():
