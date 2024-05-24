@@ -78,11 +78,11 @@ def create_student():
     data = json.loads(request.data)
     print(data["name"])
 
-    student = Student(name=data["name"])
+    student = Student(name="asdfasd")
     database.session.add(student)
     database.session.commit()
 
-    return jsonify({'message': 'Student created successfully'})
+    return {'message': 'Student created successfully'}
 
 @app.route('/callback')
 def callback():
