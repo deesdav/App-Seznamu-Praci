@@ -23,6 +23,10 @@
   font-family: "Courier New", Courier, monospace;
   font-size: 16px;
 }
+::selection {
+  background-color: #6f4e37c5;
+  color: white;
+}
 a {
   font-weight: 500;
   color: #646cff;
