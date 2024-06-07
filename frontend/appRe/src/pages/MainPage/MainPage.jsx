@@ -3,7 +3,7 @@ import "./MainPage.css";
 export default function MainPage() {
   return (
     <>
-    <h1>The List of works Application</h1>
+    <h1>The List Of Works Application</h1>
     <br />
       <div className="box">
         <Link to={"/creatework"}>
