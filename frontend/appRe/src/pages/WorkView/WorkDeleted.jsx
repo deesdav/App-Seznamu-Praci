@@ -1,11 +1,11 @@
 import { Link, useParams } from "react-router-dom";
 
-export default function StudentDeleted() {
+export default function WorkDeleted() {
   const { id } = useParams();
 
   return (
     <>
-      <p>Your student {id} was deleted</p>
+      <p>Your work {id} was deleted</p>
       <Link to={"/"}>
         <p>Go home</p>
       </Link>

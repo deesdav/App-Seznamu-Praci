@@ -1,18 +1,16 @@
-import "./MainPage.css";
 import { Link } from "react-router-dom";
-
+import "./MainPage.css";
 export default function MainPage() {
   return (
     <>
-      <Link to={"/createstudent"}>
-        <p>Student create form</p>
-      </Link>
-      <Link to={"/updatestudent/df46g65df4g6df"}>
-        <p>Student update form</p>
-      </Link>
-      <Link to={"/students"}>
-        <p>Student list</p>
-      </Link>
+      <div className="box">
+        <Link to={"/creatework"}>
+          <p>Go to Work create form</p>
+        </Link>
+        <Link to={"/works"}>
+          <p>Go to Work list</p>
+        </Link>
+      </div>
     </>
   );
 }

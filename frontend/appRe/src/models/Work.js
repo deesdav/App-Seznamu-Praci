@@ -1,5 +1,5 @@
-export const getAllStudents = async () => {
-  const req = await fetch("http://127.0.0.1:5000/createstudent", {
+export const getAllWorks = async () => {
+  const req = await fetch("http://localhost:5000/creatework", {
     headers : {'Content-Type':'application/json',
     'Access-Control-Allow-Origin':'*',
     'Access-Control-Allow-Methods':'POST,PATCH,OPTIONS'},
@@ -9,11 +9,11 @@ export const getAllStudents = async () => {
   return {
     status: req.status,
     msg: data.msg,
-    payload: data.payload
+    payload: data
   }
 };
-export const getStudentById = async (id) => {
-  const req = await fetch(`http://localhost:5000/students/${id}`, {
+export const getWorkById = async (id) => {
+  const req = await fetch(`http://localhost:5000/works/${id}`, {
     headers : {'Content-Type':'application/json',
     'Access-Control-Allow-Origin':'*',
     'Access-Control-Allow-Methods':'POST,PATCH,OPTIONS'},
@@ -23,12 +23,12 @@ export const getStudentById = async (id) => {
   return {
     status: req.status,
     msg: data.msg,
-    payload: data.payload
+    payload: data
   }
 };
 
-export const createStudent = async (formData) => {
-  const req = await fetch(`http://localhost:5000/students`, {
+export const createWork = async (formData) => {
+  const req = await fetch(`http://localhost:5000/works`, {
     headers : {  Accept: "application/json",
     'Content-Type':'application/json',
     'Access-Control-Allow-Origin':'*',
@@ -37,15 +37,16 @@ export const createStudent = async (formData) => {
     body: JSON.stringify(formData),
   });
   const data = await req.json();
+  console.log(data);
   return {
     status: req.status,
     msg: data.msg,
-    payload: data.payload
+    payload: data
   }
 };
 
-export const updateStudent = async (id, formData) => {
-  const req = await fetch(`http://localhost:5000/students/${id}`, {
+export const updateWork = async (id, formData) => {
+  const req = await fetch(`http://localhost:5000/works/${id}`, {
     headers : {'Content-Type':'application/json',
     'Access-Control-Allow-Origin':'*',
     'Access-Control-Allow-Methods':'POST,PATCH,OPTIONS'},
@@ -60,8 +61,8 @@ export const updateStudent = async (id, formData) => {
   }
 };
 
-export const deleteStudent = async (id) => {
-  const req = await fetch(`http://localhost:5000/students/${id}`, {
+export const deleteWork = async (id) => {
+  const req = await fetch(`http://localhost:5000/works/${id}`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",

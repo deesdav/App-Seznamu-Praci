@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, session, request, render_template, send_from_directory
+from flask import Flask, redirect, url_for, session, request, render_template, send_from_directory, request, jsonify
 import os
 from flask_cors import CORS, cross_origin
 from google.oauth2.credentials import Credentials
@@ -6,13 +6,14 @@ from google_auth_oauthlib.flow import Flow
 from google_auth_oauthlib.flow import InstalledAppFlow
 import json
 import mimetypes
-import Student
+from Work import Work
+import uuid
 
 mimetypes.add_type('application/javascript', '.js')
 mimetypes.add_type('text/css', '.css')
 
-# Importing the 'Student' class from the 'Student' module
-#from model.Student import Student
+# Importing the 'Work' class from the 'Work' module
+#from model.Work import Work
 from model.Works import Work
 # Importing the 'DatabaseManager' class from the 'DatabaseManager' module
 from DatabaseManager import DatabaseManager
@@ -33,7 +34,7 @@ app = Flask(__name__,
             static_folder='C:\\Users\\david.svancar\\Desktop\\App-Seznamu-Praci\\backend\\www\\assets',
             static_url_path='/assets')
 
-CORS(app, resources={r"/*": {"origins": "http://127.0.0.1:5173"}}, supports_credentials=True)
+CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:5000", "http://127.0.0.1:5000"]}}, supports_credentials=True)
 
 @app.route('/')
 def index():
@@ -73,16 +74,24 @@ def to_dict(credentials):
 
     return dictRepr
 
-@app.route('/students', methods = ['POST'])
-def create_student():
+@app.route('/works', methods = ['POST'])
+def create_work():
     data = json.loads(request.data)
-    print(data["name"])
+    print(data)
+    print("here")
+    work = Work(sid=str(uuid.uuid4()), workname=data["workname"], date=data["date"], worktypes=data["worktypes"], subject=data["subject"], abstract=data["abstract"], status=False)
+    database.insert(work)
+  #  database.commit()
 
-    student = Student(name="asdfasd")
-    database.session.add(student)
-    database.session.commit()
+    return {'message': 'Work created successfully'}
 
-    return {'message': 'Student created successfully'}
+@app.route('/creatework', methods = ['GET'])
+def get_works():
+    works = []
+    for work in database.fetch_all():
+        works.append(work)
+        
+    return works
 
 @app.route('/callback')
 def callback():
@@ -112,11 +121,21 @@ def logout():
 
 @app.route('/api/v1/works', methods=['GET'])
 def show():
-    students = []
+    works = []
     for i in database.fetch_all():
-        students.append(i)
-    return students
+        works.append(i)
+    return works
 
+@app.route('/api/block/<id>', methods=['PUT'])
+def block_work(id):
+    print(id)
+    entity = database.fetch_one(id=id)
+    print(entity)
+    entity["status"] = True
+    database.update(id, entity)
+ 
+    return jsonify({'message': 'Work blocked successfully'})
+ 
 if __name__ == '__main__': 
     os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
     app.secret_key = 'super secret key'

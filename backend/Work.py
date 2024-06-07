@@ -22,6 +22,8 @@ class Work:
         worktypes = "watching pc"
         subject = "programing"
         abstract = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis libero ratione delectus alias possimus ipsam cupiditate rem ut esse temporibus. Fugit, impedit aliquam! Magnam nesciunt quaerat exercitationem sunt aliquid temporibus!"
+        status = False
         
+
         # Creating and returning a new User instance with user-provided values
-        return cls(sid, workname, date, worktypes, subject, abstract)
+        return cls(sid, workname, date, worktypes, subject, abstract, status)

@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}

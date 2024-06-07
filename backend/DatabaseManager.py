@@ -22,21 +22,26 @@ class DatabaseManager:
             client = pymongo.MongoClient('mongodb+srv://boure:kubelkova@boure.k8cibgk.mongodb.net/?retryWrites=true&w=majority&appName=boure')
             # Getting the 'mongodb' database from the MongoDB server
             self.db = client['boure']
-            # Getting the 'students' collection from the 'mongodb' database
-            self.collection = self.db['students']
+            # Getting the 'works' collection from the 'mongodb' database
+            self.collection = self.db['works']
         except Exception as e:
             # Handling exceptions and printing an error message if connection fails
             print(f"Error: {e}")
         
-    # Method to insert student data into the 'students' collection
-    def insert(self, student):
+    # Method to insert work data into the 'works' collection
+    def insert(self, work):
         try:
-            # Creating a dictionary with student details
+            # Creating a dictionary with work details
             data = {
-                '_id': student.sid,
-                'email': student.email,
+                '_id': work.sid,
+                'workname': work.workname,
+                'date': work.date,
+                'worktypes': work.worktypes,
+                'subject': work.subject,
+                'abstract': work.abstract,
+                'status': work.status,
             }
-            # Inserting the student data into the 'students' collection and obtaining the inserted ID
+            # Inserting the work data into the 'works' collection and obtaining the inserted ID
             sid = self.collection.insert_one(data).inserted_id
             # Printing a message indicating the successful insertion of data with the obtained ID
             print(f"Data inserted with ID: {sid}")
@@ -44,30 +49,34 @@ class DatabaseManager:
             # Handling exceptions and printing an error message if data insertion fails
             print(f"Error: {e}")
 
-    # Method to fetch a specific student's data based on student ID
-    def fetch_one(self, sid):
-        # Querying the 'students' collection to find data for a specific student based on student ID
-        data = self.collection.find_one({'_id': sid})
+    # Method to fetch a specific work's data based on work ID
+    def fetch_one(self, id):
+        # Querying the 'works' collection to find data for a specific work based on work ID
+        data = self.collection.find_one({'_id': id})
         return data
 
-    # Method to fetch all students' data from the 'students' collection
+    # Method to fetch all works' data from the 'works' collection
     def fetch_all(self):
-        # Querying the 'students' collection to find all data
+        # Querying the 'works' collection to find all data
         data = self.collection.find()
         return data
 
-    # Method to update a specific student's data based on student ID
-    def update(self, sid, student):
-        # Creating a dictionary with updated student details
+    # Method to update a specific work's data based on work ID
+    def update(self, sid, work):
+        # Creating a dictionary with updated work details
         data = {
-            'username': student.username,
-            'email': student.email
+            'workname': work["workname"],
+            'date': work["date"],
+            'worktypes': work["worktypes"],
+            'subject': work["subject"],
+            'abstract': work["abstract"],
+            'status': work["status"],
         }
-        # Updating the student data in the 'students' collection
+        # Updating the work data in the 'works' collection
         self.collection.update_one({'_id': sid}, {"$set": data})
 
-    # Method to delete a specific student's data based on student ID
+    # Method to delete a specific work's data based on work ID
     def delete(self, sid):
-        # Deleting a student's data from the 'students' collection based on student ID
+        # Deleting a work's data from the 'works' collection based on work ID
         self.collection.delete_one({'_id': sid})
 

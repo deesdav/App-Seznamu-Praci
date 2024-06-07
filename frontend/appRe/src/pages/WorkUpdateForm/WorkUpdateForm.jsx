@@ -1,30 +1,30 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { updateStudent, getStudentById } from "../../models/Student";
+import { updateWork, getWorkById } from "../../models/Work";
 
-export default function StudentUpdateForm() {
-  const { id } = useParams();  
+export default function WorkUpdateForm() {
+  const { id } = useParams();
   const [formData, setFormData] = useState();
   const [info, setInfo] = useState();
   const [loaded, setLoaded] = useState();
-  const [student, setStudent] = useState();
+  const [work, setWork] = useState();
   const navigate = useNavigate();
 
   const load = async () => {
-    const data = await getStudentById(id);
+    const data = await getWorkById(id);
     if (data.status === 500 || data.status === 404) return setLoaded(null);
     if (data.status === 200) {
-      setStudent(data.payload);
+      setWork(data.payload);
       setLoaded(true);
     }
   }
 
   const postForm = async () => {
-    const student = await updateStudent(id, formData);
-    if (student.status === 200) {
-      redirectToSuccessPage(student.payload._id);
+    const work = await updateWork(id, formData);
+    if (work.status === 200) {
+      redirectToSuccessPage(work.payload._id);
     } else {
-      setInfo(student.msg);
+      setInfo(work.msg);
     }
   };
 
@@ -38,7 +38,7 @@ export default function StudentUpdateForm() {
   };
 
   const redirectToSuccessPage = (id) => {
-    return navigate(`/student/${id}`);
+    return navigate(`/work/${id}`);
   };
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function StudentUpdateForm() {
   if (loaded === null) {
     return (
       <>
-        <p>Student not found</p>
+        <p>Work not found</p>
       </>
     )
   }
@@ -56,41 +56,58 @@ export default function StudentUpdateForm() {
   if (!loaded) {
     return (
       <>
-        <p>Loading student...</p>
+        <p>Loading work...</p>
       </>
     )
   }
 
   return (
     <>
-      <h1>Student update form</h1>
+      <h1>Work update form</h1>
 
       <form>
         <input
           type="text"
           required
-          name="name"
-          placeholder="Enter name"
-          defaultValue={student.name}
+          name="workname"
+          placeholder="Enter workname"
+          defaultValue={work.workname}
           onChange={(e) => handleChange(e)}
         />
         <input
           type="number"
           required
-          name="legs"
-          placeholder="Enter number of legs"
-          defaultValue={student.legs}
+          name="date"
+          placeholder="Enter date"
+          defaultValue={work.date}
           onChange={(e) => handleChange(e)}
         />
         <input
           type="text"
           required
-          name="color"
-          placeholder="Enter color"
-          defaultValue={student.color}
+          name="worktypes"
+          placeholder="Enter worktypes"
+          defaultValue={work.worktypes}
           onChange={(e) => handleChange(e)}
         />
-        <button onClick={handlePost}>Update student</button>
+        <input
+          type="text"
+          required
+          name="subject"
+          placeholder="Enter subject"
+          defaultValue={work.subject}
+          onChange={(e) => handleChange(e)}
+        />
+        <input
+          type="text"
+          required
+          name="abstract"
+          placeholder="Enter abstract"
+          defaultValue={work.abstract}
+          onChange={(e) => handleChange(e)}
+        />
+        
+        <button onClick={handlePost}>Update work</button>
       </form>
       <p>{info}</p>
       <Link to={"/"}>

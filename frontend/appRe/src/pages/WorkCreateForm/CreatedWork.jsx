@@ -1,13 +1,13 @@
 import { useParams, Link } from "react-router-dom";
 
-export default function CreatedStudent() {
+export default function CreatedWork() {
   const { id } = useParams();
 
   return (
     <>
-      <p>Student was created: {id}</p>
-      <Link to={`/student/${id}`}>
-        <p>View student</p>
+      <p>Work was created: {id}</p>
+      <Link to={`/work/${id}`}>
+        <p>View work</p>
       </Link>
       <Link to={`/`}>
         <p>Go back</p>

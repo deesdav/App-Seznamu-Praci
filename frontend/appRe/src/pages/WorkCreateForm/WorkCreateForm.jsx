@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { createStudent } from "../../models/Student";
+import { createWork } from "../../models/Work";
 
-export default function StudentCreateForm() {
+export default function WorkCreateForm() {
   //useState - vytvoreni promenne v reactu
   // nazev promenne, setter       useState(default_hodnota)
   const [formData, setFormData] = useState();
@@ -10,11 +10,11 @@ export default function StudentCreateForm() {
   const navigate = useNavigate();
 
   const postForm = async () => {
-    const student = await createStudent(formData);
-    if (student.status === 201) {
-      redirectToSuccessPage(student.payload._id);
+    const work = await createWork(formData);
+    if (work.status === 201) {
+      redirectToSuccessPage(work.payload._id);
     } else {
-      setInfo(student.msg);
+      setInfo(work.msg);
     }
   };
 
@@ -28,36 +28,52 @@ export default function StudentCreateForm() {
   };
 
   const redirectToSuccessPage = (id) => {
-    return navigate(`/createdstudent/${id}`);
+    return navigate(`/createdwork/${id}`);
   };
 
   return (
     <>
-      <h1>Student create form</h1>
+      <h1>Work create form</h1>
 
       <form>
         <input
           type="text"
           required
-          name="name"
-          placeholder="Enter name"
+          name="workname"
+          placeholder="Enter workname"
           onChange={(e) => handleChange(e)}
         />
         <input
           type="number"
           required
-          name="legs"
-          placeholder="Enter number of legs"
+          name="date"
+          placeholder="Enter date"
           onChange={(e) => handleChange(e)}
         />
         <input
           type="text"
           required
-          name="color"
-          placeholder="Enter color"
+          name="worktypes"
+          placeholder="Enter worktypes"
           onChange={(e) => handleChange(e)}
         />
-        <button onClick={handlePost}>Create student</button>
+        <input
+          type="text"
+          required
+          name="subject"
+          placeholder="Enter subject"
+          onChange={(e) => handleChange(e)}
+        />
+
+        <input
+          type="text"
+          required
+          name="abstract"
+          placeholder="Enter abstract"
+          onChange={(e) => handleChange(e)}
+        />
+
+        <button onClick={handlePost}>Create work</button>
       </form>
       <p>{info}</p>
       <Link to={"/"}>

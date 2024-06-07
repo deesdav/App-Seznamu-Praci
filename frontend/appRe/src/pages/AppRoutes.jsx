@@ -1,23 +1,23 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./MainPage/MainPage";
-import StudentView from "./StudentView/StudentView";
-import StudentList from "./StudentList/StudentList";
-import StudentCreateForm from "./StudentCreateForm/StudentCreateForm";
-import StudentUpdateForm from "./StudentUpdateForm/StudentUpdateForm";
-import CreatedStudent from "./StudentCreateForm/CreatedStudent";
-import StudentDeleted from "./StudentView/StudentDeleted";
+import WorkView from "./WorkView/WorkView";
+import WorkList from "./WorkList/WorktList";
+import WorkCreateForm from "./WorkCreateForm/WorkCreateForm";
+import WorkUpdateForm from "./WorkUpdateForm/WorkUpdateForm";
+import CreatedWork from "./WorkCreateForm/CreatedWork";
+import WorkDeleted from "./WorkView/WorkDeleted";
 
 export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/student/:id" element={<StudentView />} />
-        <Route path="/students" element={<StudentList />} />
-        <Route path="/createstudent" element={<StudentCreateForm />} />
-        <Route path="/updatestudent/:id" element={<StudentUpdateForm />} />
-        <Route path="/createdstudent/:id" element={<CreatedStudent />} />
-        <Route path="/deletedstudent/:id" element={<StudentDeleted />} />
+        <Route path="/work/:id" element={<WorkView />} />
+        <Route path="/works" element={<WorkList />} />
+        <Route path="/creatework" element={<WorkCreateForm />} />
+        <Route path="/updatework/:id" element={<WorkUpdateForm />} />
+        <Route path="/createdwork/:id" element={<CreatedWork />} />
+        <Route path="/deletedwork/:id" element={<WorkDeleted />} />
       </Routes>
     </BrowserRouter>
   );
