@@ -65,7 +65,7 @@ export default function WorkCreateForm() {
           onChange={(e) => handleChange(e)}
         />
 
-        <input
+        <textarea
           type="text"
           required
           name="abstract"

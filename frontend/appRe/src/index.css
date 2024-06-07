@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Courier New", Courier, monospace;
   line-height: 1.5;
   font-weight: 400;
 
@@ -12,7 +12,17 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  transition: 0.3s all;
+  font-family: "Courier New", Courier, monospace;
+}
+::placeholder {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -36,22 +46,6 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: #646cff;
-}
-
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -61,33 +55,143 @@ h1,
 p {
   text-align: center;
   font-weight: bold;
+  color: #333;
 }
 
-p, button {
-  border: 2px solid aqua;
-  color: black;
+h1 {
+  padding-bottom: 30px;
+}
+p:first-child {
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+p:last-child {
+  margin: 20px auto;
+  font-size: large;
+  padding: 1em;
+  border: 3px solid #333;
+}
+p:last-child:hover {
+  border-radius: 50% 20% / 10% 40%;
+}
+
+.box p {
+  border: 2px solid rgb(255, 255, 255);
+  color: #333;
   padding: 10px;
   margin: auto;
   cursor: pointer;
 }
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: bold;
+  margin: auto;
+}
 
+form input {
+  border: 2px solid aqua;
+  color: aqua;
+  background-color: #333;
+  padding: 1em;
+  height: auto;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 0 0 2px aqua;
+}
 
+form textarea {
+  border: 2px solid aqua;
+  color: aqua;
+  background-color: #333;
+  width: 100%;
+  height: 125px;
+  border-radius: 5px;
+  padding: 1em;
+  font-size: 16px;
+  box-shadow: 0 0 2px aqua;
+}
+form button {
+  border: 2px solid #ffffff;
+  color: #333;
+  padding: 1em;
+  background-color: aqua;
+  border-radius: 5px;
+  font-size: large;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 0 2px aqua;
+}
+
+form input:hover {
+  border: 2px solid #ffffff;
+  color: #333;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 25px white;
+}
+form textarea:hover {
+  border: 2px solid #ffffff;
+  color: #333;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 25px white;
+}
+form button:hover {
+  border: 2px solid #ffffff;
+  color: #333;
+  background-color: rgb(255, 255, 255);
+  text-decoration: underline;
+  box-shadow: 0 0 25px white;
+}
+.boxTables {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 30px;
+}
 table {
   border-collapse: collapse;
-  border: 3px solid rgba(0, 0, 0, 0.862);
+  border: 2px solid #333;
   margin: 30px auto;
-  box-shadow: 0 0 25px gray;
 }
 
 th {
-  background-color: aqua;
+  background-color: aliceblue;
 }
 
 th,
 td {
-  border: 3px solid black;
+  border: 2px solid #333;
   text-align: center;
   padding: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+  form input {
+    font-size: small;
+    width: 300px;
+    margin: auto;
+  }
+  form textarea {
+    font-size: small;
+    width: 300px;
+    margin: auto;
+  }
+  form button {
+    width: 300px;
+    margin: auto;
+    font-size: small;
+  }
+  p:last-child {
+    width: 300px;
+    margin: 20px auto;
+    font-size: small;
+  }
+  .boxTables {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px;
+  }
 }
 
 @media (prefers-color-scheme: light) {

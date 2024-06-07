@@ -98,7 +98,7 @@ export default function WorkUpdateForm() {
           defaultValue={work.subject}
           onChange={(e) => handleChange(e)}
         />
-        <input
+        <textarea
           type="text"
           required
           name="abstract"
