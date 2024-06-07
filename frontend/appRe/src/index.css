@@ -61,18 +61,18 @@ p {
 h1 {
   padding-bottom: 30px;
 }
-p:first-child {
+p {
   text-align: center;
   font-weight: bold;
   color: #333;
 }
-p:last-child {
+.goBackBtn {
   margin: 20px auto;
   font-size: large;
   padding: 1em;
   border: 3px solid #333;
 }
-p:last-child:hover {
+.goBackBtn:hover {
   border-radius: 50% 20% / 10% 40%;
 }
 
@@ -83,6 +83,7 @@ p:last-child:hover {
   margin: auto;
   cursor: pointer;
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -92,53 +93,55 @@ form {
 }
 
 form input {
-  border: 2px solid aqua;
-  color: aqua;
-  background-color: #333;
+  border: 3px solid #6f4e37;
+  color: #ffffff;
+  background-color: #464646;
   padding: 1em;
   height: auto;
   border-radius: 5px;
   font-size: 16px;
-  box-shadow: 0 0 2px aqua;
+  font-weight: bold;
+  box-shadow: 0 0 2px #6f4e37;
 }
 
 form textarea {
-  border: 2px solid aqua;
-  color: aqua;
-  background-color: #333;
+  border: 3px solid #6f4e37;
+  color: #ffffff;
+  background-color: #464646;
   width: 100%;
   height: 125px;
   border-radius: 5px;
   padding: 1em;
   font-size: 16px;
-  box-shadow: 0 0 2px aqua;
+  font-weight: bold;
+  box-shadow: 0 0 2px #6f4e37;
 }
 form button {
-  border: 2px solid #ffffff;
-  color: #333;
+  border: 3px solid #ffffff00;
+  color: #cacaca;
   padding: 1em;
-  background-color: aqua;
+  background-color: #6f4e37;
   border-radius: 5px;
   font-size: large;
   font-weight: bold;
   font-size: 16px;
-  box-shadow: 0 0 2px aqua;
+  box-shadow: 0 0 2px #6f4e37;
 }
 
 form input:hover {
-  border: 2px solid #ffffff;
+  border: 3px solid #000000;
   color: #333;
   background-color: rgb(255, 255, 255);
   box-shadow: 0 0 25px white;
 }
 form textarea:hover {
-  border: 2px solid #ffffff;
+  border: 3px solid #000000;
   color: #333;
   background-color: rgb(255, 255, 255);
   box-shadow: 0 0 25px white;
 }
 form button:hover {
-  border: 2px solid #ffffff;
+  border: 3px solid #000000;
   color: #333;
   background-color: rgb(255, 255, 255);
   text-decoration: underline;

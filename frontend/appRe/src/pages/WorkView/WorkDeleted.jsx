@@ -7,7 +7,7 @@ export default function WorkDeleted() {
     <>
       <p>Your work {id} was deleted</p>
       <Link to={"/"}>
-        <p>Go home</p>
+        <p className="goBackBtn">Go back</p>
       </Link>
     </>
   );

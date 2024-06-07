@@ -9,8 +9,8 @@ export default function CreatedWork() {
       <Link to={`/work/${id}`}>
         <p>View work</p>
       </Link>
-      <Link to={`/`}>
-        <p>Go back</p>
+      <Link to={"/"}>
+        <p className="goBackBtn">Go back</p>
       </Link>
     </>
   );

@@ -50,7 +50,7 @@ export default function WorkList() {
         })
         : <p></p>}
       <Link to={"/"}>
-        <p>Go back</p>
+        <p className="goBackBtn">Go back</p>
       </Link>
     </>
   );

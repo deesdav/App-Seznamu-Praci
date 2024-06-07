@@ -34,7 +34,6 @@ export default function WorkCreateForm() {
   return (
     <>
       <h1>Work create form</h1>
-
       <form>
         <input
           type="text"
@@ -77,7 +76,7 @@ export default function WorkCreateForm() {
       </form>
       <p>{info}</p>
       <Link to={"/"}>
-        <p>Go back</p>
+        <p className="goBackBtn">Go back</p>
       </Link>
     </>
   );

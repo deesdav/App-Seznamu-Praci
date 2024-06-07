@@ -111,7 +111,7 @@ export default function WorkUpdateForm() {
       </form>
       <p>{info}</p>
       <Link to={"/"}>
-        <p>Go back</p>
+        <p className="goBackBtn">Go back</p>
       </Link>
     </>
   );
