@@ -17,4 +17,4 @@
 
 ## Kontakt
 
-Pro dotazy nebo zpětnou vazbu nás kontaktujte na [mailu](feloxe6144@rencr.com).
+Pro dotazy nebo zpětnou vazbu nás kontaktujte na [feloxe6144@rencr.com](feloxe6144@rencr.com).

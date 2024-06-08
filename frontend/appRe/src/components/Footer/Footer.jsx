@@ -11,22 +11,30 @@ export default function Footer() {
           <ul>
             <li>
               <p>
-                <a href="https://github.com/deesdav">David Švancar</a>
+                <a href="https://github.com/deesdav" target="_blank">
+                  David Švancar
+                </a>
               </p>
             </li>
             <li>
               <p>
-                <a href="https://github.com/PhilipBuresh">Filip Bureš</a>
+                <a href="https://github.com/PhilipBuresh" target="_blank">
+                  Filip Bureš
+                </a>
               </p>
             </li>
             <li>
               <p>
-                <a href="https://github.com/Ejdmmm">Adam Bartoš</a>
+                <a href="https://github.com/Ejdmmm" target="_blank">
+                  Adam Bartoš
+                </a>
               </p>
             </li>
             <li>
               <p>
-                <a href="https://github.com/martinhorak123">Martin Horák</a>
+                <a href="https://github.com/martinhorak123" target="_blank">
+                  Martin Horák
+                </a>
               </p>
             </li>
           </ul>
