@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./MainPage.css";
+import Footer from "../../components/Footer/Footer";
 export default function MainPage() {
   return (
     <>
@@ -13,6 +14,7 @@ export default function MainPage() {
           <p>Go to Work list</p>
         </Link>
       </div>
+      <Footer></Footer>
     </>
   );
 }
