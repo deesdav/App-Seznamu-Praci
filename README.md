@@ -10,10 +10,10 @@
 
 ## Členové projektu
 
-- **D. Švancar - [Github](https://github.com/deesdav)**
-- **F. Bureš - [Github](https://github.com/PhilipBuresh)**
-- **A. Bartoš - [Github](https://github.com/Ejdmmm)**
-- **M. Horák - [Github](https://github.com/martinhorak123)**
+- **D. Švancar - [GitHub](https://github.com/deesdav)**
+- **F. Bureš - [GitHub](https://github.com/PhilipBuresh)**
+- **A. Bartoš - [GitHub](https://github.com/Ejdmmm)**
+- **M. Horák - [GitHub](https://github.com/martinhorak123)**
 
 ## Kontakt
 
