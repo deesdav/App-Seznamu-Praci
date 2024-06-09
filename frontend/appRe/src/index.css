@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #dfdfdf;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,8 +24,8 @@
   font-size: 16px;
 }
 ::selection {
-  background-color: #6f4e37c5;
-  color: white;
+  background-color: #ffffff;
+  color: #6f4e37;
 }
 a {
   font-weight: 500;
@@ -38,16 +38,14 @@ a:hover {
 }
 
 body {
-  margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  background-color: #dfdfdf;
 }
 
 h1 {
   font-size: 3em;
   line-height: 1.1;
+  padding-top: 100px;
 }
 
 button:focus,
@@ -154,23 +152,60 @@ form button:hover {
 .boxTables {
   display: grid;
   grid-template-columns: auto auto;
-  gap: 30px;
+  justify-content: center;
 }
 table {
   border-collapse: collapse;
   border: 2px solid #333;
   margin: 30px auto;
+  width: 250px;
+  height: 125px;
+  font-size: small;
+}
+
+tbody div {
+  width: 100px;
+  height: fit-content;
+}
+
+tbody div p {
+  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  background-color: #6f4e37;
+  text-align: center;
+  margin: auto;
+  padding: 5px;
+  border: none;
+  font-size: large;
+}
+
+tbody div button {
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  background-color: #000000;
+  text-align: center;
+  margin: auto;
+  padding: 5px;
+  border: none;
+  width: 100px;
+  font-size: large;
 }
 
 th {
-  background-color: aliceblue;
+  background-color: #6f4e37;
+  color: white;
+}
+td {
+  background-color: #ffffff;
+  color: #333;
 }
 
 th,
 td {
   border: 2px solid #333;
   text-align: center;
-  padding: 20px;
+  padding: 12px;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 1000px) {
@@ -189,15 +224,19 @@ td {
     margin: auto;
     font-size: small;
   }
-  p:last-child {
-    width: 300px;
-    margin: 20px auto;
-    font-size: small;
-  }
   .boxTables {
     display: grid;
     grid-template-columns: auto;
     gap: 10px;
+  }
+
+  
+  table {
+    transform: scale(0.7);
+    margin: -10px auto;
+  }
+  .goBackBtn {
+    width: 400px;
   }
 }
 

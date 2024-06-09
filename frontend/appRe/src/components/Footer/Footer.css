@@ -1,6 +1,6 @@
 .footer {
-  padding-top: 100px;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -39,19 +39,25 @@
 @media screen and (max-width: 1000px) {
   .footer {
     flex-direction: column;
-    padding: 0;
+    padding: 1em;
     gap: 0px;
     font-size: smaller;
     margin: auto;
+    display: grid;
+    grid-template-columns: auto;
   }
   .footer ul {
     display: grid;
-    grid-template-columns:  auto;
+    grid-template-columns: auto auto; 
     padding: 0px;
+    justify-content: center;
   }
   .footer ul li {
-    padding: 0px;
+   
+    padding: 30px;
     margin: 0px;
+    height: 30px;
+    margin: auto;
   }
   .footer a {
     font-size: smaller;

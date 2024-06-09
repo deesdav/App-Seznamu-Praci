@@ -33,7 +33,7 @@ export default function WorkCreateForm() {
 
   return (
     <>
-      <h1>Work create form</h1>
+      <h1 style={{ "padding-top": "32px"}}>Work create form</h1>
       <form>
         <input
           type="text"

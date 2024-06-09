@@ -18,3 +18,6 @@
 ## Kontakt
 
 Pro dotazy nebo zpětnou vazbu nás kontaktujte na [feloxe6144@rencr.com](feloxe6144@rencr.com).
+
+
+###py.exe -m pip install [neco]

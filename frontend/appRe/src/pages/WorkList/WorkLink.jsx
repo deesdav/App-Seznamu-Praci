@@ -40,44 +40,45 @@ export default function WorkLink(props) {
 
   return (
     <>
-    <div className="boxTables"></div>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
+      <div className="boxTables">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
 
-            <th>Date</th>
+              <th>Date</th>
 
-            <th>Work types</th>
+              <th>Work types</th>
 
-            <th>Subject</th>
+              <th>Subject</th>
 
-            <th>Abstract</th>
+              <th>Abstract</th>
 
-            <th>Status</th>
-          </tr>
-        </thead>
+              <th>Status</th>
+            </tr>
+          </thead>
 
-        <tbody>
-          <tr>
-            <td>{props.name}</td>
+          <tbody>
+            <tr>
+              <td>{props.name}</td>
 
-            <td>{props.date}</td>
+              <td>{props.date}</td>
 
-            <td>{props.worktypes}</td>
+              <td>{props.worktypes}</td>
 
-            <td>{props.subject}</td>
+              <td>{props.subject}</td>
 
-            <td>{props.abstract}</td>
+              <td>{props.abstract}</td>
 
-            <div>
-              {button}
+              <div>
+                {button}
 
-              {props.status && <p>Zabrané!</p>}
-            </div>
-          </tr>
-        </tbody>
-      </table>
+                {props.status && <p>Zabrané!</p>}
+              </div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </>
   );
 }
