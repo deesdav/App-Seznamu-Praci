@@ -10,14 +10,13 @@
 
 ## Členové projektu
 
-- **A. Bartoš**
-- **D. Švancar**
-- **F. Bureš**
-- **M. Horák**
+- **D. Švancar [Githu](https://github.com/deesdav)**
+- **F. Bureš [Github](https://github.com/PhilipBuresh)**
+- **A. Bartoš [Github](https://github.com/Ejdmmm)**
+- **M. Horák [Github](https://github.com/martinhorak123)**
 
 ## Kontakt
 
 Pro dotazy nebo zpětnou vazbu nás kontaktujte na [feloxe6144@rencr.com](feloxe6144@rencr.com).
-
 
 ###py.exe -m pip install [neco]
