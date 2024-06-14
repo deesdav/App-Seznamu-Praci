@@ -10,6 +10,7 @@ export default function MainPage() {
         <Link to={"/creatework"}>
           <p>Go to Work create form</p>
         </Link>
+     
         <Link to={"/works"}>
           <p>Go to Work list</p>
         </Link>

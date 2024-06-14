@@ -45,7 +45,7 @@ export default function WorkList() {
       {worksList ?
         worksList.map((work, index) => {
           console.log(work);
-          return (<WorkLink key={index} id={work._id} name={work.workname} date={work.date} worktypes={work.worktypes} subject={work.subject} abstract={work.abstract}  status={work.status} />
+          return (<WorkLink key={index} id={work._id} name={work.workname} date={work.date} worktypes={work.worktypes} subject={work.subject} abstract={work.abstract} status={work.status} solver_mail={work.solver_mail} />
           )
         })
         : <p></p>}

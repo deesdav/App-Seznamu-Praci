@@ -71,6 +71,7 @@ export default function WorkView() {
       <p>Work worktypes: {work.worktypes}</p>
       <p>Work subject: {work.subject}</p>
       <p>Work abstract: {work.abstract}</p>
+      <p>Work solver mail: {work.solver_mail}</p>
       <form>
         <p>Type work name for delete work.</p>
         <input type="text" placeholder={work.workname} onChange={handleChange}/>

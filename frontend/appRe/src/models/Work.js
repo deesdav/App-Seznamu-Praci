@@ -13,7 +13,7 @@ export const getAllWorks = async () => {
   }
 };
 export const getWorkById = async (id) => {
-  const req = await fetch(`http://localhost:5000/works/${id}`, {
+  const req = await fetch(`http://localhost:5000/api/work/${id}`, {
     headers : {'Content-Type':'application/json',
     'Access-Control-Allow-Origin':'*',
     'Access-Control-Allow-Methods':'POST,PATCH,OPTIONS'},
@@ -46,7 +46,7 @@ export const createWork = async (formData) => {
 };
 
 export const updateWork = async (id, formData) => {
-  const req = await fetch(`http://localhost:5000/works/${id}`, {
+  const req = await fetch(`http://localhost:5000/api/work/${id}`, {
     headers : {'Content-Type':'application/json',
     'Access-Control-Allow-Origin':'*',
     'Access-Control-Allow-Methods':'POST,PATCH,OPTIONS'},

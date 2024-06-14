@@ -17,6 +17,7 @@
   margin: 0;
   transition: 0.3s all;
   font-family: "Courier New", Courier, monospace;
+  zoom: 102%;
 }
 
 ::placeholder {
@@ -25,8 +26,8 @@
 }
 
 ::selection {
-  background-color: #ffffff;
-  color: #6f4e37;
+  background-color: #6f4e37;
+  color: #ffffff;
 }
 
 a {
@@ -41,7 +42,6 @@ a:hover {
 
 body {
   display: flex;
-  background-color: #dfdfdf;
 }
 
 h1 {
@@ -84,11 +84,15 @@ p {
 }
 
 .box p {
-  border: 2px solid rgb(255, 255, 255);
+  border: 2px solid rgb(203, 203, 203);
   color: #333;
   padding: 10px;
   margin: auto;
   cursor: pointer;
+}
+
+.box p:hover {
+  border: 2px solid #6f4e37;
 }
 
 form {
@@ -112,6 +116,7 @@ form input {
 }
 
 form textarea {
+  resize: none;
   border: 3px solid #6f4e37;
   color: #ffffff;
   background-color: #464646;
@@ -176,11 +181,12 @@ form button:hover {
   padding: 1em;
   margin: 30px auto;
   height: auto;
-  width: 420px;
+  width: 620px;
   border-radius: 10px;
   border: 1mm ridge #6f4e37;
   font-size: large;
 }
+
 .list:hover {
   background-color: rgba(255, 255, 255, 0.203);
   box-shadow: 0 0 25px #6f4e37b7;
@@ -191,6 +197,22 @@ form button:hover {
   list-style-type: none;
   color: #333;
   font-weight: bold;
+}
+
+.list .deleteBtn {
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  left: 490px;
+  top: 0px;
+  font-size: x-large;
+  height: auto;
+}
+
+.list .deleteBtn:hover {
+  color: #6f4e37b7;
+  text-shadow: 0 0 20px black;
 }
 
 .list ul li {
@@ -213,6 +235,7 @@ form button:hover {
   justify-content: center;
   padding: 1em;
   background-color: #6f4e37;
+  color: #ffffff;
   border: 3px solid #333;
   cursor: pointer;
   font-weight: bold;
@@ -225,6 +248,27 @@ form button:hover {
   text-decoration: underline;
   box-shadow: 0 0 25px white;
 }
+
+.list ul li .updateBtn {
+  margin: 12px auto;
+  display: flex;
+  justify-content: center;
+  padding: 0.7em;
+  background-color: #6f4e37;
+  border: 3px solid #333;
+  cursor: pointer;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.list ul li .updateBtn:hover {
+  border: 3px solid #000000;
+  color: #333;
+  background-color: rgb(255, 255, 255);
+  text-decoration: underline;
+  box-shadow: 0 0 25px white;
+}
+
 
 .list ul li div div {
   margin: 10px auto;
@@ -260,9 +304,23 @@ form button:hover {
 
   .list {
     width: 300px;
+    padding: 2em;
   }
+
   .goBackBtn {
-    width: 400px;
+    width: 320px;
+    
+  }
+
+  .list .deleteBtn {
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    left: 254px;
+    top: 0px;
+    font-size: small;
+    height: auto;
   }
 }
 

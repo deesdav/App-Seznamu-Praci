@@ -12,6 +12,7 @@ export default function WorkCreateForm() {
   const postForm = async () => {
     const work = await createWork(formData);
     if (work.status === 201) {
+      
       redirectToSuccessPage(work.payload._id);
     } else {
       setInfo(work.msg);
@@ -25,15 +26,20 @@ export default function WorkCreateForm() {
   const handlePost = (e) => {
     e.preventDefault();
     postForm();
+    refreshPage(); 
   };
 
   const redirectToSuccessPage = (id) => {
     return navigate(`/createdwork/${id}`);
   };
 
+function refreshPage() {
+  return navigate(`/`);
+}
+
   return (
     <>
-      <h1 style={{ "padding-top": "32px"}}>Work create form</h1>
+      <h1 style={{ "padding-top": "100px"}}>Work create form</h1>
       <form>
         <input
           type="text"
@@ -71,6 +77,7 @@ export default function WorkCreateForm() {
           placeholder="Enter abstract"
           onChange={(e) => handleChange(e)}
         />
+    
 
         <button onClick={handlePost}>Create work</button>
       </form>

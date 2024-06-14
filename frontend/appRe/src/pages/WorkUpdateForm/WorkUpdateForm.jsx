@@ -35,6 +35,7 @@ export default function WorkUpdateForm() {
   const handlePost = (e) => {
     e.preventDefault();
     postForm();
+    refreshPage(); 
   };
 
   const redirectToSuccessPage = (id) => {
@@ -61,9 +62,14 @@ export default function WorkUpdateForm() {
     )
   }
 
+  function refreshPage() {
+    return navigate(`/`);
+  }
+  
+
   return (
     <>
-      <h1>Work update form</h1>
+      <h1 style={{paddingTop: "100px"}}>Work update form</h1>
 
       <form>
         <input
@@ -106,6 +112,7 @@ export default function WorkUpdateForm() {
           defaultValue={work.abstract}
           onChange={(e) => handleChange(e)}
         />
+      
         
         <button onClick={handlePost}>Update work</button>
       </form>

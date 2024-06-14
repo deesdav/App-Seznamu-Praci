@@ -40,6 +40,7 @@ class DatabaseManager:
                 'subject': work.subject,
                 'abstract': work.abstract,
                 'status': work.status,
+                'solver_mail': work.solver_mail,
             }
             # Inserting the work data into the 'works' collection and obtaining the inserted ID
             sid = self.collection.insert_one(data).inserted_id
@@ -71,12 +72,13 @@ class DatabaseManager:
             'subject': work["subject"],
             'abstract': work["abstract"],
             'status': work["status"],
+            'solver_mail': work["solver_mail"],
         }
         # Updating the work data in the 'works' collection
         self.collection.update_one({'_id': sid}, {"$set": data})
 
     # Method to delete a specific work's data based on work ID
-    def delete(self, sid):
+    def delete(self, id):
         # Deleting a work's data from the 'works' collection based on work ID
-        self.collection.delete_one({'_id': sid})
+        self.collection.delete_one({'_id': id})
 

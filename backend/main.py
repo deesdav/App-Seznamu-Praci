@@ -37,6 +37,7 @@ app = Flask(__name__,
 CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:5000", "http://127.0.0.1:5000"]}}, supports_credentials=True)
 
 @app.route('/')
+@app.route('/works')
 def index():
     if  'credentials' in session.keys():
         return render_template('index.html')
@@ -77,9 +78,7 @@ def to_dict(credentials):
 @app.route('/works', methods = ['POST'])
 def create_work():
     data = json.loads(request.data)
-    print(data)
-    print("here")
-    work = Work(sid=str(uuid.uuid4()), workname=data["workname"], date=data["date"], worktypes=data["worktypes"], subject=data["subject"], abstract=data["abstract"], status=False)
+    work = Work(sid=str(uuid.uuid4()), workname=data["workname"], date=data["date"], worktypes=data["worktypes"], subject=data["subject"], abstract=data["abstract"], status=False, solver_mail=None)
     database.insert(work)
   #  database.commit()
 
@@ -92,6 +91,24 @@ def get_works():
         works.append(work)
         
     return works
+
+@app.route('/api/work/<id>', methods=['PUT'])
+def update_work(id):
+    data = json.loads(request.data)
+    entity = database.fetch_one(id=id)
+    keys = data.keys()
+    for key in keys:
+        entity[key] = data[key]
+    
+    database.update(id, entity)
+ 
+    return jsonify({'message': 'Work updated successfully'})
+
+@app.route('/api/work/<id>', methods=['GET'])
+def get_work_by_id(id):
+    entity = database.fetch_one(id=id)
+    return jsonify(entity)
+
 
 @app.route('/callback')
 def callback():
@@ -126,15 +143,24 @@ def show():
         works.append(i)
     return works
 
+def get_current_user():
+    return "lll.t@spsm.cz"
+
 @app.route('/api/block/<id>', methods=['PUT'])
 def block_work(id):
-    print(id)
     entity = database.fetch_one(id=id)
-    print(entity)
     entity["status"] = True
+    entity["solver_mail"] = get_current_user()
     database.update(id, entity)
  
     return jsonify({'message': 'Work blocked successfully'})
+ 
+
+@app.route('/api/block/<id>', methods=['DELETE'])
+def delete_work(id):
+    database.delete(id=id)
+    print(session['credentials'])
+    return jsonify({'message': 'Work deleted successfully'})
  
 if __name__ == '__main__': 
     os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
